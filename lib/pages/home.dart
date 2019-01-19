@@ -224,14 +224,38 @@ class MenuTambahan extends StatelessWidget {
 }
 
 List<MenuTambahanItems> menuTambahan = [
-  MenuTambahanItems(title: 'Tagihan & Isi Ulang', icon: Icons.receipt,),
-  MenuTambahanItems(title: 'Internet Luar Negeri', icon: Icons.data_usage,),
-  MenuTambahanItems(title: 'Bioskop', icon: Icons.movie,),
-  MenuTambahanItems(title: 'PayLater', icon: Icons.payment,),
-  MenuTambahanItems(title: 'Status Penerbangan', icon: Icons.airplanemode_active,),
-  MenuTambahanItems(title: 'Pulsa & Paket Internet', icon: Icons.signal_cellular_4_bar,),
-  MenuTambahanItems(title: 'Online Check-In', icon: Icons.airplanemode_inactive,),
-  MenuTambahanItems(title: 'Notifikasi Harga', icon: Icons.notifications,),
+  MenuTambahanItems(
+    title: 'Tagihan & Isi Ulang',
+    icon: Icons.receipt,
+  ),
+  MenuTambahanItems(
+    title: 'Internet Luar Negeri',
+    icon: Icons.data_usage,
+  ),
+  MenuTambahanItems(
+    title: 'Bioskop',
+    icon: Icons.movie,
+  ),
+  MenuTambahanItems(
+    title: 'PayLater',
+    icon: Icons.payment,
+  ),
+  MenuTambahanItems(
+    title: 'Status Penerbangan',
+    icon: Icons.airplanemode_active,
+  ),
+  MenuTambahanItems(
+    title: 'Pulsa & Paket Internet',
+    icon: Icons.signal_cellular_4_bar,
+  ),
+  MenuTambahanItems(
+    title: 'Online Check-In',
+    icon: Icons.airplanemode_inactive,
+  ),
+  MenuTambahanItems(
+    title: 'Notifikasi Harga',
+    icon: Icons.notifications,
+  ),
 ];
 
 class MenuTambahanItems extends StatelessWidget {
@@ -261,20 +285,87 @@ class Promo extends StatelessWidget {
     return Column(
       children: <Widget>[
         ListTile(
-          title: Text('Promo Saat Ini', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20.0),),
+          title: Text(
+            'Promo Saat Ini',
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22.0),
+          ),
           trailing: IconButton(
             icon: Icon(Icons.keyboard_arrow_right),
-            onPressed: (){},
+            onPressed: () {},
           ),
         ),
-        Row(
-          children: <Widget>[
-            Container(
-              height: 100.0,
-              width: 200.0,
-              child: Text('Lihat Semua Promo'),
-            )
-          ],
+        Container(
+          width: double.infinity,
+          height: 150.0,
+          padding: const EdgeInsets.only(left: 8.0),
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.blue,
+                        Colors.blue[800],
+                      ]),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                // padding: EdgeInsets.all(8.0),
+                margin: EdgeInsets.only(left: 8.0),
+                height: 150.0,
+                width: 100.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.red[300],
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.elliptical(20.0,20.0),
+                          bottomRight: Radius.elliptical(150.0, 150.0)
+                        )
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 2.0, left: 5.0, right: 30.0, bottom: 30.0),
+                        child: Text('%', style: TextStyle(fontSize: 24.0,color: Colors.white),),
+                      )),
+                    Expanded(
+                      child: Container(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Lihat Semua \nPromo',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                            fontSize: 18.0),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.blue,
+                          Colors.blue[800],
+                        ]),
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                        image: AssetImage('images/promo.jpeg'))),
+                margin: EdgeInsets.only(left: 10.0),
+                height: 150.0,
+                width: 300.0,
+                child: null,
+              )
+            ],
+          ),
         )
       ],
     );
